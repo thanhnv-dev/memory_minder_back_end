@@ -3,9 +3,9 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { LoggerMiddleware } from './common/middleware/logger.middleware';
+import { LoggerMiddleware } from './middleware/logger.middleware';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { getMongoUri } from './common/constants/connection';
+import { getMongoUri } from './constants/connection';
 import { UserService } from './users/user.service';
 
 @Module({
