@@ -1,8 +1,17 @@
-import { Controller, Delete, Get, Post, Put, Body } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Post,
+  Put,
+  Body,
+  HttpStatus,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from 'src/dto/user.dto';
-import { ResponseData } from 'src/common/globalClass';
-import { HttpMessage, HttpStatus } from 'src/common/globalEnum';
+import { ResponseData } from 'src/common/response-data';
+import { HttpMessage } from 'src/enum/http-message.enum';
+import { Public } from 'src/constants/public.decorator';
 
 @Controller('users')
 export class UserController {
@@ -13,30 +22,31 @@ export class UserController {
     try {
       return new ResponseData<string>(
         this.userService.getUer(),
-        HttpStatus.SUCCESS,
+        HttpStatus.OK,
         HttpMessage.SUCCESS,
       );
     } catch (error) {
       return new ResponseData<string>(
         this.userService.getUer(),
-        HttpStatus.ERROR,
+        HttpStatus.OK,
         HttpMessage.ERROR,
       );
     }
   }
 
-  @Post('/test')
+  @Public()
+  @Post()
   createUser(@Body() userDto: UserDto): ResponseData<UserDto> {
     try {
       return new ResponseData<UserDto>(
         userDto,
-        HttpStatus.SUCCESS,
+        HttpStatus.OK,
         HttpMessage.SUCCESS,
       );
     } catch (error) {
       return new ResponseData<UserDto>(
         null,
-        HttpStatus.ERROR,
+        HttpStatus.BAD_REQUEST,
         HttpMessage.ERROR,
       );
     }
