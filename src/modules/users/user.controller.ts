@@ -8,10 +8,10 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UserDto } from 'src/dto/user.dto';
-import { ResponseData } from 'src/common/response-data';
-import { HttpMessage } from 'src/enum/http-message.enum';
-import { Public } from 'src/constants/public.decorator';
+import { ResponseData } from '../../common/response-data';
+import { HttpMessage } from '../../enum/http-message.enum';
+import { Public } from '../../constants/public.decorator';
+import { UserDto } from '../../dto/user.dto';
 
 @Controller('users')
 export class UserController {

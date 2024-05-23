@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "strict": true
+  },
   "extends": "./tsconfig.json",
+  "forceConsistentCasingInFileNames": true,
   "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
 }
