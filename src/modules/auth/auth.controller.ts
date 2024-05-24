@@ -1,14 +1,12 @@
 import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
-
 import { AuthService } from './auth.service';
-
 import { Response } from 'express';
 import { Public } from 'src/constants/public.decorator';
 import { UserDto } from 'src/dto/user.dto';
-import { AuthResponseDto } from 'src/dto/auth.dto';
-import { ResponseData } from 'src/common/response-data';
 import { HttpMessage } from 'src/enum/http-message.enum';
 import { ResponseType } from 'src/constants/type';
+import { AuthResponseDto } from 'src/dto/auth.dto';
+import { ResponseData } from 'src/common/response-data';
 
 @Controller('auth')
 export class AuthController {
@@ -30,7 +28,11 @@ export class AuthController {
       );
     } catch (error: any) {
       return res.json(
-        new ResponseData<AuthResponseDto>(null, HttpStatus.BAD_REQUEST, error),
+        new ResponseData<AuthResponseDto>(
+          null,
+          HttpStatus.BAD_REQUEST,
+          error?.message,
+        ),
       );
     }
   }

@@ -3,13 +3,13 @@ export class AuthResponseDto {
   name: string;
   email: string;
   token: string;
-  refresh_token: string;
+  refreshToken: string;
 
-  constructor({ id, name, email, token, refresh_token }) {
+  constructor({ id, name, email, token, refreshToken }) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.token = token;
-    this.refresh_token = refresh_token;
+    this.refreshToken = refreshToken;
   }
 }
