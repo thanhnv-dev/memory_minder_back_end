@@ -27,13 +27,15 @@ export class AuthController {
         ),
       );
     } catch (error: any) {
-      return res.json(
-        new ResponseData<AuthResponseDto>(
-          null,
-          HttpStatus.BAD_REQUEST,
-          error?.message,
-        ),
-      );
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json(
+          new ResponseData<AuthResponseDto>(
+            null,
+            HttpStatus.BAD_REQUEST,
+            error?.message,
+          ),
+        );
     }
   }
 }
